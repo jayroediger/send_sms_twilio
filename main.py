@@ -1,12 +1,13 @@
 #!pip install twilio
 from twilio.rest import Client
-from config import *
+from config import account_sid, auth_token, my_twilio_phone, to_phone
 
 client = Client(account_sid, auth_token)
 
+message_body = "Goodmorning, Jay. This is a message from Twilio."
 message = client.messages \
     .create(
-         body='This is the ship that made the Kessel Run in fourteen parsecs?',
+         body= message_body,
          from_= my_twilio_phone,
          to= to_phone
      )
